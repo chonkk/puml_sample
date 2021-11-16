@@ -1,0 +1,31 @@
+@startuml
+
+scale max 1024 width
+hide footbox
+skinparam backgroundColor #FEFBFC
+skinparam sequence {
+LifeLineBorderColor #000000
+LifeLineBackgroundColor #A9DCDF
+ParticipantBorderColor #595C5F
+ParticipantBackgroundColor #fff2cc
+ActorBorderColor #999999
+ActorBackgroundColor fff2cc
+}
+!define send(a,b) a-[#e02222]>b
+!define send(a,b,c) a-[#e02222]>b : c
+!define recv(a,b) a<-[#0000ff]-b
+!define recv(a,b,c) a<-[#0000ff]-b : c
+!define self(a) a-[#00ff00]>a
+!define self(a,c) a-[#00ff00]>a : c
+
+title Footer removed
+
+actor Bob
+
+== Initialization ==
+autonumber 1 "[0]"
+send(Alice,Bob)
+send(Bob,Alice,"test")
+recv(Bob,Alice,"test2")
+self(Bob, self test)
+@enduml
